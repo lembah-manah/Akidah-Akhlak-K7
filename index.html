@@ -3,81 +3,482 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modul Akidah Akhlak Kelas 7 — Bab 1: Akidah Islam</title>
+<title>Akidah Akhlak Kelas VII — Yayasan Lembah Manah Langon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:wght@500;600;700&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#0B3D3C;
+    --teal-mid:#12534F;
+    --emerald:#1F6F5C;
+    --gold:#C9A15C;
+    --gold-soft:#E4CE9C;
+    --cream:#FAF6EC;
+    --sand:#F1E9D6;
+    --ink:#20302D;
+    --ink-soft:#4B5F5A;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Mulish', sans-serif;
+    line-height:1.6;
+  }
+
+  /* ---------- Star motif (signature element) ---------- */
+  .star{
+    display:inline-block;
+    width:1em;
+    height:1em;
+    background:currentColor;
+    clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+  }
+
+  .star-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin:0 auto;
+    color:var(--gold);
+    font-size:14px;
+  }
+  .star-divider::before,
+  .star-divider::after{
+    content:"";
+    height:1px;
+    width:64px;
+    background:linear-gradient(90deg, transparent, var(--gold));
+  }
+  .star-divider::after{background:linear-gradient(90deg, var(--gold), transparent);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:relative;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(201,161,92,0.12), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(201,161,92,0.10), transparent 45%),
+      linear-gradient(160deg, var(--teal-deep), var(--teal-mid));
+    color:var(--cream);
+    padding:72px 24px 56px;
+    text-align:center;
+    overflow:hidden;
+  }
+  header::before{
+    content:"";
+    position:absolute;
+    inset:10px;
+    border:1px solid rgba(228,206,156,0.35);
+    pointer-events:none;
+  }
+  .eyebrow{
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--gold-soft);
+    margin-bottom:18px;
+    font-weight:600;
+  }
+  h1.institution{
+    font-family:'Amiri', serif;
+    font-weight:700;
+    font-size:clamp(28px, 4.4vw, 46px);
+    margin:0 0 10px;
+    letter-spacing:0.01em;
+  }
+  .madrasah{
+    font-family:'Lora', serif;
+    font-size:clamp(16px, 2.2vw, 20px);
+    color:var(--gold-soft);
+    margin:0 0 26px;
+    font-weight:500;
+  }
+  .subject-card{
+    display:inline-block;
+    margin-top:8px;
+    padding:14px 32px;
+    border:1px solid rgba(228,206,156,0.5);
+    border-radius:2px;
+    background:rgba(255,255,255,0.04);
+  }
+  .subject-card p{
+    margin:0;
+    font-family:'Lora', serif;
+    font-size:clamp(18px, 2.6vw, 24px);
+    font-weight:600;
+    color:var(--cream);
+  }
+  .subject-card span{
+    display:block;
+    font-family:'Mulish', sans-serif;
+    font-size:13px;
+    letter-spacing:0.08em;
+    color:var(--gold-soft);
+    margin-top:4px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- Capaian Pembelajaran strip ---------- */
+  .cp-strip{
+    max-width:760px;
+    margin:44px auto 0;
+    padding:0 24px;
+  }
+  .cp-strip a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(228,206,156,0.3);
+    color:var(--cream);
+    text-decoration:none;
+    padding:14px 22px;
+    border-radius:2px;
+    font-size:14px;
+    letter-spacing:0.02em;
+    transition:background 0.2s ease, transform 0.2s ease;
+  }
+  .cp-strip a:hover{background:rgba(255,255,255,0.12); transform:translateX(2px);}
+  .cp-strip .arrow{color:var(--gold);}
+
+  /* ---------- Main ---------- */
+  main{
+    max-width:960px;
+    margin:0 auto;
+    padding:64px 24px 40px;
+  }
+
+  .section-heading{
+    text-align:center;
+    margin-bottom:44px;
+  }
+  .section-heading h2{
+    font-family:'Lora', serif;
+    font-size:clamp(22px, 3vw, 28px);
+    color:var(--teal-deep);
+    margin:0 0 14px;
+  }
+
+  /* ---------- Chapter list ---------- */
+  .bab-list{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+
+  .bab-card{
+    position:relative;
+    display:grid;
+    grid-template-columns:88px 1fr;
+    background:#fff;
+    border:1px solid var(--sand);
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 1px 2px rgba(11,61,60,0.04);
+    transition:box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .bab-card:hover{
+    box-shadow:0 10px 26px rgba(11,61,60,0.12);
+    transform:translateY(-2px);
+  }
+
+  .bab-number{
+    background:linear-gradient(165deg, var(--teal-deep), var(--emerald));
+    color:var(--gold-soft);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    font-family:'Amiri', serif;
+    padding:20px 8px;
+  }
+  .bab-number .roman{
+    font-size:26px;
+    font-weight:700;
+    color:var(--cream);
+  }
+  .bab-number .star{
+    margin-top:8px;
+    font-size:12px;
+    color:var(--gold);
+  }
+
+  .bab-body{
+    padding:22px 26px 22px 24px;
+  }
+  .bab-body h3{
+    margin:0 0 6px;
+    font-family:'Lora', serif;
+    font-size:19px;
+    color:var(--teal-deep);
+  }
+  .bab-body h3 a{
+    color:inherit;
+    text-decoration:none;
+  }
+  .bab-body h3 a:hover{color:var(--emerald); text-decoration:underline;}
+
+  .bab-topics{
+    margin:10px 0 14px;
+    padding:0;
+    list-style:none;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4px 20px;
+  }
+  .bab-topics li{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    position:relative;
+    padding-left:14px;
+  }
+  .bab-topics li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    color:var(--gold);
+  }
+
+  .bab-foot{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    margin-top:14px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 18px;
+    background:var(--teal-deep);
+    color:var(--cream);
+    text-decoration:none;
+    font-size:13.5px;
+    font-weight:600;
+    border-radius:2px;
+    letter-spacing:0.01em;
+    transition:background 0.2s ease;
+  }
+  .btn:hover{background:var(--emerald);}
+  .btn.ghost{
+    background:transparent;
+    color:var(--teal-deep);
+    border:1px solid var(--sand);
+  }
+  .btn.ghost:hover{
+    background:var(--sand);
+  }
+
+  /* ---------- Assessment banners ---------- */
+  .asesmen-banner{
+    margin:36px 0;
+    padding:26px 30px;
+    background:linear-gradient(120deg, var(--sand), #fff);
+    border-left:4px solid var(--gold);
+    border-radius:2px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .asesmen-banner .label{
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--emerald);
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .asesmen-banner h4{
+    margin:0;
+    font-family:'Lora', serif;
+    font-size:17px;
+    color:var(--teal-deep);
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    text-align:center;
+    padding:44px 24px 60px;
+    color:var(--ink-soft);
+    font-size:13px;
+  }
+  footer .star-divider{margin-bottom:20px;}
+  footer strong{color:var(--teal-deep);}
+
+  @media (max-width:560px){
+    .bab-card{grid-template-columns:64px 1fr;}
+    .bab-number .roman{font-size:20px;}
+    .bab-topics{grid-template-columns:1fr;}
+    .asesmen-banner{flex-direction:column; align-items:flex-start;}
+  }
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="eyebrow">MTs Lembah Manah • Semester Ganjil TP. 2026/2027</div>
-  <h1>Modul Akidah Akhlak</h1>
-  <p>Kelas 7 — Bab I: Akidah Islam</p>
+<header>
+  <div class="eyebrow">Lembar Kerja Siswa · Kurikulum Merdeka</div>
+  <h1 class="institution">Yayasan Lembah Manah Langon Jepara</h1>
+  <p class="madrasah">Rintisan MTs Lembah Manah</p>
+
+  <div class="subject-card">
+    <p>Mata Pelajaran Akidah Akhlak</p>
+    <span>Kelas VII</span>
+  </div>
+
+  <div class="cp-strip">
+    <a href="#capaian">
+      <span>Capaian Pembelajaran</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
 </header>
 
-<main class="wrap">
+<main>
 
-  <div class="progress-pill">
-    <span>📖 <strong>Beranda</strong> Modul</span>
-    <div class="progress-bar-track"><div class="progress-bar-fill" style="width:6%"></div></div>
-    <span>Bagian 0 / 8</span>
+  <div class="section-heading" id="capaian">
+    <span class="star-divider"></span>
+    <h2>Daftar Bab</h2>
   </div>
 
-  <div class="summary-card">
-    <span class="tag">Ringkasan Bab</span>
-    <h2>Akidah: Fondasi di Atas Segalanya</h2>
-    <p>Modul ini mengajak siswa memahami akidah sebagai fondasi hidup seorang muslim — mulai dari pengertian, dasar hukum, tujuan mempelajarinya, hingga hubungan iman, Islam, dan ihsan serta perilaku yang mencerminkannya.</p>
+  <div class="bab-list">
+
+    <!-- BAB I -->
+    <article class="bab-card">
+      <div class="bab-number">
+        <span class="roman">I</span>
+        <span class="star"></span>
+      </div>
+      <div class="bab-body">
+        <h3><a href="Bab-1/index.html">Akidah Islam</a></h3>
+        <ul class="bab-topics">
+          <li>Pengertian Aqidah Islam</li>
+          <li>Dasar-Dasar Akidah Islam</li>
+          <li>Tujuan Mempelajari Akidah Islam</li>
+          <li>Pengertian Iman, Islam dan Ihsan</li>
+          <li>Hubungan Iman, Islam dan Ihsan</li>
+          <li>Perilaku Orang yang Mencerminkan Akidah Islam</li>
+        </ul>
+        <div class="bab-foot">
+          <a class="btn" href="Bab-1/index.html">Buka Materi</a>
+          <a class="btn ghost" href="Bab-1/penilaian-formatif.html">Penilaian Formatif I</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- BAB II -->
+    <article class="bab-card">
+      <div class="bab-number">
+        <span class="roman">II</span>
+        <span class="star"></span>
+      </div>
+      <div class="bab-body">
+        <h3><a href="Bab-2/index.html">Sifat-Sifat Allah Swt.</a></h3>
+        <ul class="bab-topics">
+          <li>Pengertian Sifat Wajib, Mustahil dan Jaiz Bagi Allah Swt.</li>
+          <li>Pengelompokan Sifat Wajib dan Sifat Mustahil Bagi Allah Swt.</li>
+          <li>Bukti/Dalil Kebenaran Sifat-Sifat Allah Swt.</li>
+          <li>Perilaku Orang yang Beriman Terhadap Sifat-Sifat Allah Swt.</li>
+        </ul>
+        <div class="bab-foot">
+          <a class="btn" href="Bab-2/index.html">Buka Materi</a>
+          <a class="btn ghost" href="Bab-2/penilaian-formatif.html">Penilaian Formatif II</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="asesmen-banner">
+      <div>
+        <div class="label">Latihan Asesmen</div>
+        <h4>Asesmen Sumatif Tengah Semester Ganjil</h4>
+      </div>
+      <a class="btn" href="Asesmen/tengah-semester-ganjil.html">Kerjakan Latihan</a>
+    </div>
+
+    <!-- BAB III -->
+    <article class="bab-card">
+      <div class="bab-number">
+        <span class="roman">III</span>
+        <span class="star"></span>
+      </div>
+      <div class="bab-body">
+        <h3><a href="Bab-3/index.html">Taat, Ikhlas, Istiqomah dan Taubat</a></h3>
+        <ul class="bab-topics">
+          <li>Taat</li>
+          <li>Ikhlas</li>
+          <li>Istiqamah</li>
+          <li>Taubat</li>
+        </ul>
+        <div class="bab-foot">
+          <a class="btn" href="Bab-3/index.html">Buka Materi</a>
+          <a class="btn ghost" href="Bab-3/penilaian-formatif.html">Penilaian Formatif III</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- BAB IV -->
+    <article class="bab-card">
+      <div class="bab-number">
+        <span class="roman">IV</span>
+        <span class="star"></span>
+      </div>
+      <div class="bab-body">
+        <h3><a href="Bab-4/index.html">Adab Sholat dan Berdzikir</a></h3>
+        <ul class="bab-topics">
+          <li>Pengertian Shalat dan Zikir</li>
+          <li>Adab Shalat dan Berdzikir</li>
+          <li>Hikmah Shalat dan Berdzikir</li>
+        </ul>
+        <div class="bab-foot">
+          <a class="btn" href="Bab-4/index.html">Buka Materi</a>
+          <a class="btn ghost" href="Bab-4/penilaian-formatif.html">Penilaian Formatif IV</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- BAB V -->
+    <article class="bab-card">
+      <div class="bab-number">
+        <span class="roman">V</span>
+        <span class="star"></span>
+      </div>
+      <div class="bab-body">
+        <h3><a href="Bab-5/index.html">Keteladanan Nabi Sulaiman A.S.</a></h3>
+        <ul class="bab-topics">
+          <li>Kisah Nabi Sulaiman a.s.</li>
+          <li>Meneladani Kisah Nabi Sulaiman a.s.</li>
+        </ul>
+        <div class="bab-foot">
+          <a class="btn" href="Bab-5/index.html">Buka Materi</a>
+          <a class="btn ghost" href="Bab-5/penilaian-formatif.html">Penilaian Formatif V</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="asesmen-banner">
+      <div>
+        <div class="label">Latihan Asesmen</div>
+        <h4>Asesmen Sumatif Semester Ganjil</h4>
+      </div>
+      <a class="btn" href="Asesmen/semester-ganjil.html">Kerjakan Latihan</a>
+    </div>
+
   </div>
-
-  <section class="card">
-    <h2>Kata Pengantar</h2>
-    <p>Bayangkan sebuah bangunan megah yang menjulang tinggi ke angkasa. Seindah apa pun warna catnya atau sekuat apa pun dindingnya, bangunan itu tidak akan sanggup bertahan lama jika tidak memiliki fondasi yang tertanam jauh ke dalam bumi. Begitu pula dengan kehidupan kita sebagai seorang Muslim.</p>
-    <p>Berakidah Islam bukan sekadar "percaya", tapi tentang bagaimana kepercayaan itu mengubah cara kita memandang dunia. Melalui modul ini, kita akan memahami bahwa Akidah adalah motor penggerak bagi setiap ibadah dan akhlak kita. Tanpa Akidah, amal perbuatan kita bagaikan debu yang diterbangkan angin.</p>
-    <p><strong>Ayo, kita bangun fondasi diri yang kokoh mulai hari ini!</strong></p>
-    <div class="opening-quote">
-      "Barangsiapa yang memiliki akidah yang lurus, maka ia akan menemukan jalan yang terang meskipun dunia terasa gelap."
-    </div>
-  </section>
-
-  <section class="card">
-    <h2>Capaian &amp; Tujuan Pembelajaran</h2>
-    <p><em>Elemen: Akidah | Materi: Akidah Islam</em></p>
-    <div class="definisi-box">
-      <div class="label">Capaian Pembelajaran</div>
-      <p>Peserta didik mampu menganalisis akidah Islam (iman, Islam, dan ihsan), serta enam rukun iman sehingga memiliki pemahaman akidah yang benar sesuai pemahaman ulama ahl sunnah wa al-jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan berakhlaqul karimah, bernilai ibadah, dan berdimensi ukhrawi.</p>
-    </div>
-    <h3>Peserta didik mampu menganalisis:</h3>
-    <ol>
-      <li>Pengertian Aqidah Islam</li>
-      <li>Dasar-Dasar Akidah Islam</li>
-      <li>Tujuan Mempelajari Akidah Islam</li>
-      <li>Pengertian Iman, Islam dan Ihsan</li>
-      <li>Hubungan Iman, Islam dan Ihsan</li>
-      <li>Perilaku yang mencerminkan Akidah Islam</li>
-    </ol>
-  </section>
-
-  <section class="card">
-    <h2>Daftar Bagian Modul</h2>
-    <div class="daftar-isi">
-      <a href="bagian-1.html"><span class="num">1</span><span class="txt"><strong>A. Pengertian Akidah Islam</strong><span>Makna akidah secara bahasa &amp; istilah, dalil-dalilnya</span></span></a>
-      <a href="bagian-2.html"><span class="num">2</span><span class="txt"><strong>B. Dasar-Dasar Akidah Islam</strong><span>Al-Qur'an dan Al-Hadits sebagai sumber akidah</span></span></a>
-      <a href="bagian-3.html"><span class="num">3</span><span class="txt"><strong>C. Tujuan Mempelajari Akidah Islam</strong><span>Lima tujuan utama mempelajari akidah</span></span></a>
-      <a href="bagian-4.html"><span class="num">4</span><span class="txt"><strong>D. Pengertian Iman, Islam &amp; Ihsan</strong><span>Definisi, rukun iman, pilar Islam, macam ihsan</span></span></a>
-      <a href="bagian-5.html"><span class="num">5</span><span class="txt"><strong>E. Hubungan Iman, Islam &amp; Ihsan</strong><span>Perumpamaan pohon: akar, batang, buah</span></span></a>
-      <a href="bagian-6.html"><span class="num">6</span><span class="txt"><strong>F. Perilaku &amp; Kesimpulan</strong><span>Cerminan akidah dalam perilaku sehari-hari</span></span></a>
-      <a href="bagian-7.html"><span class="num">7</span><span class="txt"><strong>Diskusi, Hafalan &amp; Refleksi</strong><span>Diskusi kelompok, asesmen hafalan, penguatan diri</span></span></a>
-      <a href="bagian-8.html"><span class="num">8</span><span class="txt"><strong>Penilaian Formatif I</strong><span>Soal pilihan ganda, menjodohkan, dan esai</span></span></a>
-    </div>
-  </section>
-
-  <div class="nav-buttons">
-    <span class="nav-btn secondary disabled">← Awal Modul</span>
-    <a class="nav-btn" href="bagian-1.html">Mulai Belajar →</a>
-  </div>
-
-  <p class="footer-note">Modul Akidah Akhlak · MTs Lembah Manah · Yayasan Lembah Manah Langon, Jepara</p>
 </main>
+
+<footer>
+  <span class="star-divider"></span>
+  <p><strong>Yayasan Lembah Manah Langon Jepara</strong> — Rintisan MTs Lembah Manah</p>
+  <p>Lembar Kerja Siswa Akidah Akhlak Kelas VII · Kurikulum Merdeka</p>
+</footer>
+
 </body>
 </html>
